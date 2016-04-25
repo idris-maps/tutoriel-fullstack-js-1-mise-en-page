@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Tutoriel-fullstack-js-1-mise-en-page : Tutoriel Fullstack JavaScript - Chapitre 1 - Mise en page">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Tutoriel-fullstack-js-1-mise-en-page</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/idris-maps/tutoriel-fullstack-js-1-mise-en-page">View on GitHub</a>
+
+          <h1 id="project_title">Tutoriel-fullstack-js-1-mise-en-page</h1>
+          <h2 id="project_tagline">Tutoriel Fullstack JavaScript - Chapitre 1 - Mise en page</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/idris-maps/tutoriel-fullstack-js-1-mise-en-page/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/idris-maps/tutoriel-fullstack-js-1-mise-en-page/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="mise-en-page" class="anchor" href="#mise-en-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en page</h1>
+
+<p>Pour commencer nous allons faire la mise en page qui va être utilisée dans toutes les versions du site.</p>
+
+<h2>
+<a id="le-fichier-html" class="anchor" href="#le-fichier-html" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Le fichier HTML</h2>
+
+<p>Créez un fichier HTML <code>index.html</code></p>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"/&gt;
+  &lt;title&gt;Mise en page&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;!-- le corp du document --&gt;
+ &lt;/body&gt;
+&lt;/html&gt; 
+</code></pre>
+
+<h2>
+<a id="le-fichier-css" class="anchor" href="#le-fichier-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Le fichier CSS</h2>
+
+<p>Nous allons utiliser <a href="http://getbootstrap.com">bootstrap</a> de Twitter comme base pour les styles et un fichier <code>style.css</code> avec nos propres styles.</p>
+
+<p>Créez le fichier <code>style.css</code> et ajoutez des liens aux feuilles de style à l'intérieur de la balise <code>&lt;head&gt;</code> du fichier <code>index.html</code>.</p>
+
+<pre><code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+</code></pre>
+
+<h2>
+<a id="les-différentes-parties-de-la-page" class="anchor" href="#les-diff%C3%A9rentes-parties-de-la-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Les différentes parties de la page</h2>
+
+<h3>
+<a id="structure-de-base" class="anchor" href="#structure-de-base" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure de base</h3>
+
+<p>Dans le corp du document, nous allons avoir une <code>&lt;div&gt;</code> qui englobe toute la page avec un <code>id="contenu"</code>. Et à l'intérieur de celle-ci:</p>
+
+<ul>
+<li>le titre</li>
+<li>la liste de ce qu'il y a à faire</li>
+<li>un formulaire pour ajouter des choses à faire et supprimer ce qui a été fait</li>
+</ul>
+
+<pre><code>&lt;div id="contenu"&gt;
+ &lt;h1&gt;À faire&lt;/h1&gt;
+ &lt;div id="liste"&gt;&lt;/div&gt;
+ &lt;div id="formulaire"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>CSS</strong></p>
+
+<p>Dans <code>style.css</code>:</p>
+
+<pre><code>/* le contenu fait 90% de la largeur du corp de la page */
+#contenu {
+ width: 90%;
+ margin: auto;
+}
+
+/* si la page fait plus de 550 pixels de large, le contenu en fait 500 */
+@media (min-width: 550px) {
+ #contenu { width: 500px }
+}
+</code></pre>
+
+<h3>
+<a id="les-éléments-de-la-liste" class="anchor" href="#les-%C3%A9l%C3%A9ments-de-la-liste" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Les éléments de la liste</h3>
+
+<p>La liste sera composée d'éléments qui sont soit "fait" ou "à faire". </p>
+
+<p>Si l'élément est "fait":</p>
+
+<pre><code>&lt;div class="liste-element fait"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>S'il est "à faire":</p>
+
+<pre><code>&lt;div class="liste-element a-faire"&gt;&lt;/div&gt;
+</code></pre>
+
+<p><strong>CSS</strong></p>
+
+<pre><code>/* element de la liste */
+.liste-element {
+ padding: 20px;
+ border-radius: 5px;
+ margin-top: 5px;
+}
+
+/* fond rouge si fait, vert si à faire */
+.fait {
+ background-color: #fb9a99
+}
+.a-faire {
+ background-color: #b2df8a
+}
+</code></pre>
+
+<h3>
+<a id="structure-dun-élément-de-la-liste" class="anchor" href="#structure-dun-%C3%A9l%C3%A9ment-de-la-liste" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure d'un élément de la liste</h3>
+
+<p>Chaque élément de la liste sera potentiellement composé de deux parties:</p>
+
+<ul>
+<li>Les infos: ce qu'il y a à faire, un bouton pour mettre à jour et un bouton pour le marquer comme "fait" ou "à faire"</li>
+<li>Si l'élément est en cours de modification, une partie avec une balise <code>&lt;input&gt;</code> pour faire la modification et un bouton pour l'envoyer</li>
+</ul>
+
+<pre><code>&lt;div class="liste-element-info"&gt;
+ &lt;div class="liste-element-texte"&gt;
+  &lt;p&gt;Ce qu'il y a à faire&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class="liste-element-modif"&gt;
+  &lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;
+ &lt;/div&gt;
+ &lt;div class="liste-element-statut"&gt;
+  &lt;!-- si fait --&gt;
+  &lt;span class="glyphicon glyphicon-ok"&gt;&lt;/span&gt;
+  &lt;!-- si à faire --&gt;
+  &lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- si en cours de modification: --&gt;
+&lt;div class="liste-element-maj"&gt;
+ &lt;div class="liste-element-maj-input"&gt;
+  &lt;input class="form-control" id="liste-element-maj-input" type="text"&gt;
+ &lt;/div&gt;
+ &lt;div class="liste-element-maj-bouton"&gt;
+  &lt;button class="btn btn-primary" id="liste-element-maj-bouton"&gt;OK&lt;/button&gt;
+ &lt;/div&gt;
+&lt;/div&gt; 
+</code></pre>
+
+<p><strong>CSS</strong></p>
+
+<p>Le style des classes <code>form-control</code>, <code>btn btn-primary</code>, <code>glyphicon</code>, <code>glyphicon-ok</code>, <code>glyphicon-remove</code> et <code>glyphicon-pencil</code> sont définies par Bootstrap. Dans <code>style.css</code>, nous définissons les autres:</p>
+
+<pre><code>/* table pour les infos */
+.liste-element-info {
+ display: table;
+ width: 100%;
+}
+
+/* cellules de la table info */
+.liste-element-texte, .liste-element-modif, .liste-element-statut {
+ display: table-cell;
+ vertical-align: middle;
+}
+
+/* première cellule de la table info */
+.liste-element-texte {
+ width: 80%;
+ padding: 2px;
+ overflow: scroll;
+}
+
+/* les deux autres cellules de la table info */
+.list-item-update .list-item-completed {
+ width: 10%;
+}
+
+/* table pour element en cours de mise à jour */
+.liste-element-maj {
+ margin-top: 20px;
+ display: table;
+}
+
+/* cellules de la table de mise à jour */
+.liste-element-maj-input, .liste-element-maj-input-bouton {
+ display: table-cell;
+ vertical-align: middle;
+}
+
+/* première cellule de la table de mise à jour */
+.liste-element-maj-input {
+ width: 80%;
+}
+
+/* deuxième cellule de la table de mise à jour */
+.liste-element-maj-input-bouton {
+ width: 20%;
+}
+</code></pre>
+
+<h3>
+<a id="le-formulaire-pour-ajouter-quelque-chose-à-faire-et-supprimer-ce-qui-a-été-fait" class="anchor" href="#le-formulaire-pour-ajouter-quelque-chose-%C3%A0-faire-et-supprimer-ce-qui-a-%C3%A9t%C3%A9-fait" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Le formulaire pour ajouter quelque chose à faire et supprimer ce qui a été fait</h3>
+
+<p>À l'intérieur de la balise <code>&lt;div id="formulaire"&gt;&lt;/div&gt;</code>, nous ajoutons:</p>
+
+<ul>
+<li>Une partie pour ajouter quelque chose à faire avec une balise <code>&lt;input&gt;</code> et un bouton <code>OK</code>
+</li>
+<li>Une autre avec un bouton <code>Supprimer ce qui a été fait</code>
+</li>
+</ul>
+
+<pre><code>&lt;div class="ajouter"&gt;
+ &lt;div class="ajouter-input"&gt;
+  &lt;input id="add-todo-input" class="form-control" placeholder="À faire" type="text"&gt;
+ &lt;/div&gt;
+ &lt;div class="ajouter-bouton"&gt;
+  &lt;button id="ajouter-bouton" class="btn btn-primary"&gt;OK&lt;/button&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="supprimer-fait"&gt;
+ &lt;button id="supprimer-fait-bouton" class="btn btn-danger"&gt;Supprimer ce qui a été fait&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>CSS</strong></p>
+
+<p>Le style des classes <code>form-control</code>, <code>btn</code>, <code>btn-primary</code> et <code>btn-danger</code> est géré par Bootstrap, pour le reste:</p>
+
+<pre><code>/* table ajouter à faire */
+.ajouter {
+ display: table;
+ width: 100%;
+}
+
+/* cellules de la table ajouter */
+.ajouter-input, .ajouter-bouton {
+ display: table-cell;
+ vertical-align: middle;
+}
+
+/* première cellule de la table ajouter */
+.ajouter-input {
+ width: 80%;
+}
+
+/* deuxième cellule de la table ajouter */
+.ajouter-bouton {
+ width: 20%;
+ text-align: center
+}
+
+/* aérer ajouter et supprimer-fait */
+.ajouter, #supprimer-fait {
+ margin-top: 30px;
+}
+</code></pre>
+
+<h2>
+<a id="la-page-de-test-de-mise-en-page" class="anchor" href="#la-page-de-test-de-mise-en-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>La page de test de mise en page</h2>
+
+<p>Pour vérifier que tout fonctionne créons une page avec trois éléments de liste:</p>
+
+<ul>
+<li>Un élément "à faire"</li>
+<li>Un élément "fait"</li>
+<li>Un élément "à faire" en cours de modification</li>
+</ul>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"/&gt;
+  &lt;title&gt;Mise en page&lt;/title&gt;
+&lt;!-- feuille de style "bootstrap" de http://getbootstrap.com --&gt;
+  &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"&gt;
+&lt;!-- notre feuille de style --&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+&lt;!-- une DIV pour tout le contenu --&gt;
+  &lt;div id="contenu"&gt;
+&lt;!-- le titre --&gt;
+   &lt;h1&gt;À faire&lt;/h1&gt;
+&lt;!-- la liste de ce qu'il y a à faire --&gt;
+   &lt;div id="liste"&gt;
+&lt;!-- un element de la liste "fait" --&gt;
+    &lt;div class="liste-element fait"&gt;
+     &lt;div class="liste-element-info"&gt;
+      &lt;div class="liste-element-texte"&gt;
+       &lt;p&gt;Fait&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="liste-element-modif"&gt;
+       &lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="liste-element-statut"&gt;
+       &lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+&lt;!-- un element de la liste "à faire" --&gt;
+    &lt;div class="liste-element a-faire"&gt;
+     &lt;div class="liste-element-info"&gt;
+      &lt;div class="liste-element-texte"&gt;
+       &lt;p&gt;À faire&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="liste-element-modif"&gt;
+       &lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="liste-element-statut"&gt;
+       &lt;span class="glyphicon glyphicon-ok"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+&lt;!-- un element de la liste en cours de modification --&gt;
+    &lt;div class="liste-element a-faire"&gt;
+     &lt;div class="liste-element-info"&gt;
+      &lt;div class="liste-element-texte"&gt;
+       &lt;p&gt;En cours de modification&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="liste-element-modif"&gt;
+       &lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="liste-element-statut"&gt;
+       &lt;span class="glyphicon glyphicon-ok"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+     &lt;/div&gt;
+     &lt;div class="liste-element-maj"&gt;
+      &lt;div class="liste-element-maj-input"&gt;
+       &lt;input class="form-control" id="liste-element-maj-input" type="text"&gt;
+      &lt;/div&gt;
+      &lt;div class="liste-element-maj-bouton"&gt;
+       &lt;button class="btn btn-primary" id="liste-element-maj-bouton"&gt;OK&lt;/button&gt;
+      &lt;/div&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div id="formulaire"&gt;
+    &lt;div class="ajouter"&gt;
+     &lt;div class="ajouter-input"&gt;
+      &lt;input id="ajouter-input" class="form-control" placeholder="À faire" type="text"&gt;
+     &lt;/div&gt;
+     &lt;div class="ajouter-bouton"&gt;
+      &lt;button id="ajouter-bouton" class="btn btn-primary"&gt;Ajouter&lt;/button&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="supprimer-fait"&gt;
+     &lt;button id="supprimer-fait-bouton" class="btn btn-danger"&gt;Supprimer ce qui a été fait&lt;/button&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Maintenant que nous avons la mise en page souhaitée, nous pouvons passer à l'interaction.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Tutoriel-fullstack-js-1-mise-en-page maintained by <a href="https://github.com/idris-maps">idris-maps</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
