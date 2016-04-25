@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Mise en page</title>
+<!-- feuille de style "bootstrap" de http://getbootstrap.com -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- notre feuille de style -->
+  <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+<!-- une DIV pour tout le contenu -->
+		<div id="contenu">
+<!-- le titre -->
+			<h1>À faire</h1>
+<!-- la liste de ce qu'il y a à faire -->
+			<div id="liste">
+<!-- un element de la liste "fait" -->
+				<div class="liste-element fait">
+					<div class="liste-element-info">
+						<div class="liste-element-texte">
+							<p>Fait</p>
+						</div>
+						<div class="liste-element-modif">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</div>
+						<div class="liste-element-statut">
+							<span class="glyphicon glyphicon-remove"></span>
+						</div>
+					</div>
+				</div>
+<!-- un element de la liste "à faire" -->
+				<div class="liste-element a-faire">
+					<div class="liste-element-info">
+						<div class="liste-element-texte">
+							<p>À faire</p>
+						</div>
+						<div class="liste-element-modif">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</div>
+						<div class="liste-element-statut">
+							<span class="glyphicon glyphicon-ok"></span>
+						</div>
+					</div>
+				</div>
+<!-- un element de la liste en cours de modification -->
+				<div class="liste-element a-faire">
+					<div class="liste-element-info">
+						<div class="liste-element-texte">
+							<p>En cours de modification</p>
+						</div>
+						<div class="liste-element-modif">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</div>
+						<div class="liste-element-statut">
+							<span class="glyphicon glyphicon-ok"></span>
+						</div>
+					</div>
+					<div class="liste-element-maj">
+						<div class="liste-element-maj-input">
+							<input class="form-control" id="liste-element-maj-input" type="text">
+						</div>
+						<div class="liste-element-maj-bouton">
+							<button class="btn btn-primary" id="liste-element-maj-bouton">OK</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="formulaire">
+				<div class="ajouter">
+					<div class="ajouter-input">
+						<input id="ajouter-input" class="form-control" placeholder="À faire" type="text">
+					</div>
+					<div class="ajouter-bouton">
+						<button id="ajouter-bouton" class="btn btn-primary">Ajouter</button>
+					</div>
+				</div>
+				<div id="supprimer-fait">
+					<button id="supprimer-fait-bouton" class="btn btn-danger">Supprimer ce qui a été fait</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
